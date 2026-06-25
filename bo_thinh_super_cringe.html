@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>🎂 Bố Thịnh Birthday 🎂</title>
+<style>
+html,body{margin:0;height:100%;overflow:hidden;font-family:"Comic Sans MS",cursive;}
+body{
+display:flex;align-items:center;justify-content:center;
+background:linear-gradient(45deg,#ff9ecf,#ffd6ea,#fff6c8,#d8ffd8);
+background-size:400% 400%;
+animation:bg 10s infinite alternate;
+}
+@keyframes bg{from{background-position:0 0}to{background-position:100% 100%}}
+.float{position:absolute;user-select:none;animation:fall linear infinite;}
+@keyframes fall{
+from{transform:translateY(-120px) rotate(0deg)}
+to{transform:translateY(110vh) rotate(720deg)}
+}
+.card{
+background:#fffdfd;border:10px dashed hotpink;border-radius:35px;
+padding:35px;text-align:center;box-shadow:0 0 40px hotpink;z-index:2;
+}
+h1{font-size:58px;color:#ff1493;margin:0;animation:spin 2s infinite alternate}
+@keyframes spin{from{transform:rotate(-2deg) scale(1)}to{transform:rotate(2deg) scale(1.05)}}
+button{font-size:28px;padding:16px 40px;border:none;border-radius:999px;background:#ff4fa0;color:#fff;cursor:pointer}
+#msg{margin-top:25px;font-size:42px;font-weight:bold;color:#d4006e}
+.small{font-size:24px}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🌹🎂 HAPPY BIRTHDAY BỐ THỊNH 🎂🌹</h1>
+<p class="small">Website được tài trợ bởi đứa con báo nhất nhà 💖</p>
+<button onclick="boom()">🎉 BẤM ĐI BỐ 🎉</button>
+<div id="msg"></div>
+</div>
+<script>
+const emojis=["🌹","🌸","🌺","💩","🐱","😺","🐈","🎂","💖","✨"];
+for(let i=0;i<120;i++){
+ let d=document.createElement("div");
+ d.className="float";
+ d.innerHTML=emojis[Math.floor(Math.random()*emojis.length)];
+ d.style.left=Math.random()*100+"vw";
+ d.style.fontSize=(24+Math.random()*42)+"px";
+ d.style.animationDuration=(5+Math.random()*8)+"s";
+ d.style.animationDelay=(-Math.random()*12)+"s";
+ document.body.appendChild(d);
+}
+function boom(){
+document.getElementById("msg").innerHTML=
+"🌹💩 BỐ THỊNH ĐÓN BÉO THỐI ỈA 💩🌹<br>🐱 Chúc bố sinh nhật vui vẻ, sống lâu trăm tuổi, ăn nhiều không béo (nói dối) 🐱";
+for(let i=0;i<180;i++){
+ let c=document.createElement("div");
+ c.className="float";
+ c.innerHTML=["💩","🌹","🐱","💖","🎉"][Math.floor(Math.random()*5)];
+ c.style.left=Math.random()*100+"vw";
+ c.style.fontSize=(30+Math.random()*40)+"px";
+ c.style.animationDuration=(2+Math.random()*3)+"s";
+ document.body.appendChild(c);
+ setTimeout(()=>c.remove(),5000);
+}
+}
+</script>
+</body>
+</html>
